@@ -1,0 +1,50 @@
+{
+  "users": {
+    "tutor1": {
+      "username": "tutor1",
+      "type": "tutor",
+      "availableSlot": [
+        {
+          "day": 1,
+          "slot": 0
+        },
+        {
+          "day": 3,
+          "slot": 3
+        },
+        {
+          "day": 5,
+          "slot": 6
+        }
+      ]
+    },
+    "tutor2": {
+      "username": "tutor2",
+      "type": "tutor",
+      "availableSlot": [
+        {
+          "day": 2,
+          "slot": 0
+        },
+        {
+          "day": 6,
+          "slot": 3
+        },
+        {
+          "day": 5,
+          "slot": 6
+        }
+      ]
+    },
+    "student1": {
+      "username": "student1",
+      "type": "student",
+      "availableSlot": []
+    }
+  },
+  "creds": {
+    "tutor1": "tutor1",
+    "tutor2": "tutor2",
+    "student1": "student1"
+  }
+}
