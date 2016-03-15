@@ -27,3 +27,9 @@ password: student1
 - tutor
 username: tutor1
 password: tutor1
+
+### Git Push-To-Deploy
+```
+git remote add prod ssh://ubuntu@52.68.45.252/home/ubuntu/tcrc_bare
+git push prod master
+```
