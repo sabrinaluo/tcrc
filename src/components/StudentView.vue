@@ -79,7 +79,7 @@
         selectedDay: 0,
         selectedSlot: 0,
         selectedTutor: '',
-        mySchedule: [{tutor: 'tutor1', day: 1, slot: 2}]
+        mySchedule: [{tutor: 'tutor1', day: '1', slot: '2'}]
       };
     },
     methods: {
@@ -117,7 +117,7 @@
           return item.day === this.selectedDay && item.slot === this.selectedSlot;
         });
         if (sameSlotSchedule.length) {
-          this.error = ERROR.studentSessionExists;
+          this.error = ERROR.sessionExists;
           return;
         }
       }

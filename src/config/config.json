@@ -41,5 +41,8 @@
   "student": {
     "maxSession": 10,
     "sameTutorMaxSession": 3
+  },
+  "tutor": {
+    "maxSession": 5
   }
 }

@@ -2,6 +2,7 @@
   "auth": "Wrong username or password, please try again!",
   "validation": "please input username and password",
   "studentMaxSession": "Maximum 10 sessions!",
-  "studentSessionExists": "You have already added this session!",
-  "studentMaxSessionSameTutor": "You can choose maximux 3 sessions from a same tutor"
+  "sessionExists": "You have already added this session!",
+  "studentMaxSessionSameTutor": "You can choose maximux 3 sessions from a same tutor",
+  "tutorMaxSession": "Maximum 5 sessions!"
 }
