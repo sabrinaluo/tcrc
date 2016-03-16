@@ -1,0 +1,10 @@
+{
+  "userNotExists": {
+    "status": 40001,
+    "error": "User does not exist"
+  },
+  "userPassNotMatch": {
+    "status": 40002,
+    "error": "Username does not match password"
+  }
+}
