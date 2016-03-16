@@ -8,7 +8,6 @@ var cors = require('cors');
 
 var config = require('./config');
 var apiRouter = require('./apiRouter');
-var auth = require('./middleware/auth');
 
 var staticDir = path.join(__dirname, 'dist');
 var app = express();
