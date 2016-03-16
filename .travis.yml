@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '4.0'
+branches:
+  only:
+  - master
+script:
+- npm run build
+after_success:
+- ssh-keyscan -H 52.68.45.252 >> ~/.ssh/known_hosts
+- openssl aes-256-cbc -K $encrypted_ba13c7f3fbda_key -iv $encrypted_ba13c7f3fbda_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name 'Sabrina Luo (travis)'
+- git config --global user.email 'luohaojing@gmail.com'
+- git remote add deploy ssh://ubuntu@52.68.45.252/home/ubuntu/tcrc_bare
+- git push deploy master -f
