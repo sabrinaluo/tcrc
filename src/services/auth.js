@@ -1,6 +1,4 @@
 import {router} from '../main';
-import ERROR from '../config/error.json';
-import DB from '../db.json';
 
 export default{
   user: {
@@ -9,15 +7,25 @@ export default{
     type: null
   },
   login(context, credentials) {
-    var users = DB.users;
-    var creds = DB.creds;
-    if (creds[credentials.username] === credentials.password) {
-      this.user = users[credentials.username];
-      this.user.authenticated = true;
-      var redirect = '/' + this.user.type;
-      router.go(redirect);
-    } else {
-      context.error = ERROR.auth;
-    }
+    context.$http.post('/api/login', credentials)
+      .then((response) => {
+        var data = response.data.data;
+        this.user = data.user;
+        this.user.authenticated = true;
+        localStorage.setItem('token', data.token);
+        var redirect = '/' + this.user.type;
+        router.go(redirect);
+      })
+      .catch((e) => {
+        context.error = e.data.error;
+      });
+  },
+  checkAuth() {
+    var token = localStorage.getItem('token');
+    this.user.authenticated = token !== null;
+  },
+  logout() {
+    localStorage.removeItem('token');
+    router.go('/login');
   }
 };
