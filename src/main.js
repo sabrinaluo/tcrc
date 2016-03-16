@@ -4,11 +4,12 @@ import Resource from 'vue-resource';
 import LoginView from './components/LoginView';
 import TutorView from './components/TutorView.vue';
 import StudentView from './components/StudentView.vue';
-
+import Auth from './services/auth';
 import App from './App';
 
 Vue.use(Router);
 Vue.use(Resource);
+Auth.checkAuth();
 
 export var router = new Router();
 

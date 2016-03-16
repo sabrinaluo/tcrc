@@ -4,6 +4,8 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
+var cors = require('cors');
+
 var config = require('./config');
 var apiRouter = require('./apiRouter');
 var auth = require('./middleware/auth');
@@ -19,6 +21,7 @@ app.use(session({
   resave: true
 }));
 app.use(morgan('dev'));
+app.use(cors());
 
 app.use('/', express.static(staticDir));
 app.use('/api/', apiRouter);

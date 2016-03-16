@@ -1,5 +1,5 @@
 <template>
-  <h1>Welcome to TCRC</h1>
+  <h1>Welcome to TCRC <Logout></Logout></h1>
   <div class="row">
     <div class="col-xs-6 col-md-3">
       <form>
@@ -69,9 +69,13 @@
   import Auth from '../services/auth';
   import ERROR from '../config/error.json';
   import CONFIG from '../config/config.json';
+  import Logout from './Logout.vue';
   const maxSession = CONFIG.student.maxSession;
   const sameTutorMaxSession = CONFIG.student.sameTutorMaxSession;
   export default{
+    components: {
+      Logout
+    },
     data() {
       return {
         error: '',
@@ -129,7 +133,7 @@
     },
     route: {
       canActivate() {
-        return Auth.user.authenticated;
+        return Auth.user.authenticated && Auth.user.type === 'student';
       }
     }
   };

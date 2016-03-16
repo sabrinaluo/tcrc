@@ -4,11 +4,12 @@
 http://tcrc.sabrinaluo.com/
 
 ### Notes
-- no backend interaction
-- no local storage, DON'T refresh
-- available view: login, student
+- ~~no backend interaction~~ Backend interaction only for login
+- ~~no local storage, DON'T refresh~~
+- available view: login, student, tutor
 - user accounts are hardcoded
 - available tutors are hardcoded
+- no database interaction
 
 ### Build Setup
 
