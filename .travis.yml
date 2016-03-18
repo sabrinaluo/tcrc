@@ -6,6 +6,7 @@ branches:
   - master
 script:
 - npm run build
+- npm run test
 after_success:
 - ssh-keyscan -H 52.68.45.252 >> ~/.ssh/known_hosts
 - openssl aes-256-cbc -K $encrypted_ba13c7f3fbda_key -iv $encrypted_ba13c7f3fbda_iv -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
