@@ -1,9 +1,10 @@
 var mocha = require('mocha');
 var should = require('chai').should();
 var supertest = require('supertest');
+var app = require('./../../app');
 var ERROR = require('./../../api/error.json');
 
-var server = supertest.agent('http://localhost:3000');
+var server = supertest(app);
 
 describe('login', ()=> {
   it('should error userNotExists when user not exists', (done)=> {

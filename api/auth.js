@@ -13,10 +13,12 @@ exports.login = function (req, res) {
 
   if (user === null) {
     res.status(400).send(ERROR.userNotExists);
+    return;
   }
 
   if (creds[username] !== password) {
     res.status(400).send(ERROR.userPassNotMatch);
+    return;
   }
 
   var token = jwt.sign({username: username}, jwtSecret);

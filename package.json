@@ -4,11 +4,12 @@
   "author": "Sabrina Luo <luohaojing@gmail.com>",
   "license": "MIT",
   "repository": "sabrinaluo/tcrc",
+  "main": "app.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.prod.conf.js",
     "start": "node app",
-    "test": "forever start app.js && mocha tests/* -R nyan"
+    "test": "mocha --recursive tests -R nyan"
   },
   "engines": {
     "node": ">=5.4.0"
