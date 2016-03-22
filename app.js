@@ -5,12 +5,14 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var cors = require('cors');
+var jwt = require('express-jwt');
 
 var config = require('./config');
 var apiRouter = require('./apiRouter');
 
 var staticDir = path.join(__dirname, 'dist');
 var app = express();
+app.use('/', express.static(staticDir));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -21,11 +23,11 @@ app.use(session({
 }));
 app.use(morgan('dev'));
 app.use(cors());
+app.use(jwt({secret: config.jwtSecret}).unless({path: ['/api/login']}));
 
-app.use('/', express.static(staticDir));
 app.use('/api/', apiRouter);
 
-app.listen(config.port, function () {
+app.listen(config.port, function() {
   console.log('app is listening on port: ' + config.port);
 });
 

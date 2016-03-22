@@ -8,4 +8,7 @@ var router = express.Router();
 
 router.post('/login', authController.login);
 
+router.get('/tutors', tutorController.tutors);
+router.get('/tutors/:username',tutorController.tutor);
+
 module.exports = router;
