@@ -12,6 +12,7 @@ var apiRouter = require('./apiRouter');
 
 var staticDir = path.join(__dirname, 'dist');
 var app = express();
+app.use('/', express.static(staticDir));
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -24,7 +25,6 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(jwt({secret: config.jwtSecret}).unless({path: ['/api/login']}));
 
-app.use('/', express.static(staticDir));
 app.use('/api/', apiRouter);
 
 app.listen(config.port, function() {
